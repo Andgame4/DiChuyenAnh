@@ -6,7 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <script src="./demo.js"></script>
+  <body onload="docReady()">
+    <!-- Chú ý có thuộc tính position để xác định vị trí nó sau khi di chuyển -->
+    <img
+      src="/img/Hinh-anh-meo-ngau-anh-meo-deo-kinh-cool-nhat.jpg"
+      alt="anh meo"
+      style="position: absolute; left: 0; top: 0; width: 200px"
+      id="catKey"
+    />
+    <script>
+      function left() {
+        let img = document.getElementById("catKey");
+        img.style.left = parseInt(img.style.left) + 10 + "px";
+        // tìm hiểu phần Dom CSS
+      }
+
+      function handleChange(event) {
+        switch (event.keyCode) {
+          // tìm hiểu keyCode
+          case 39:
+            left();
+            break;
+        }
+      }
+
+      function docReady() {
+        window.addEventListener("keydown", handleChange);
+        // tìm hiểu sự kiện window addEventListener
+      }
+    </script>
   </body>
 </html>
